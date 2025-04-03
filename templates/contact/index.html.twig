@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block content %}
+<main>
+    <section>
+        <h1>Contactez-moi</h1>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+
+        {{ form_start(contactForm) }}
+        {{ form_row(contactForm.name, { 'attr': {'placeholder': 'Nom (2-100 caractères)'} }) }}
+        {{ form_row(contactForm.email) }}
+        {{ form_row(contactForm.message) }}
+        {{ form_row(contactForm.submit) }}
+        {{ form_end(contactForm) }}
+
+    </section>
+</main>
+{% endblock %}
